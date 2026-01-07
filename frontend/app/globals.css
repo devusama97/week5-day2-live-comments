@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.5rem;
+  --primary: 0 149 246;
+  --primary-hover: 24 119 242;
+  --text-primary: 38 38 38;
+  --text-secondary: 142 142 142;
+  --border: 219 219 219;
+  --bg-secondary: 250 250 250;
+}
+
+@layer base {
+  * {
+    @apply border-[#dbdbdb];
+  }
+  body {
+    @apply bg-white text-[#262626] overflow-x-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Instagram-inspired minimal design */
+.social-container {
+  @apply max-w-[975px] mx-auto px-5;
+}
+
+.social-card {
+  @apply bg-white border border-[#dbdbdb] rounded-lg shadow-sm w-full;
+}
+
+.social-btn-primary {
+  @apply bg-[#0095f6] text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#1877f2] transition-all duration-200 border-0 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.social-btn-secondary {
+  @apply bg-white text-[#262626] border border-[#dbdbdb] px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#fafafa] transition-all duration-200;
+}
+
+.social-input {
+  @apply w-full px-3 py-3 border border-[#dbdbdb] rounded-lg bg-[#fafafa] focus:outline-none focus:border-[#0095f6] focus:bg-white text-sm placeholder-[#8e8e8e] transition-all duration-200;
+}
+
+.social-avatar {
+  @apply w-8 h-8 rounded-full bg-gradient-to-br from-[#0095f6] to-[#1877f2] flex items-center justify-center text-white font-semibold text-sm overflow-hidden cursor-pointer;
+}
+
+.social-avatar-lg {
+  @apply w-20 h-20 rounded-full bg-gradient-to-br from-[#0095f6] to-[#1877f2] flex items-center justify-center text-white font-bold text-xl overflow-hidden;
+}
+
+.social-text-muted {
+  @apply text-[#8e8e8e] text-sm;
+}
+
+.social-divider {
+  @apply border-t border-[#dbdbdb];
+}
+
+.social-sidebar {
+  @apply fixed left-0 top-0 h-full w-[245px] bg-white border-r border-[#dbdbdb] z-40;
+}
+
+.social-main {
+  @apply ml-[245px] min-h-screen bg-white flex-1 overflow-x-hidden;
+}
+
+.social-navbar {
+  @apply bg-white border-b border-[#dbdbdb] sticky top-0 z-50;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .social-sidebar {
+    @apply w-[72px];
+  }
+  
+  .social-main {
+    @apply ml-[72px];
+  }
+  
+  .social-sidebar .sidebar-text {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-sidebar {
+    @apply hidden;
+  }
+  
+  .social-main {
+    @apply ml-0 pb-20;
+  }
+  
+  .social-container {
+    @apply px-4;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.heart-animation {
+  animation: heartBeat 0.3s ease-in-out;
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Notification badge */
+.notification-badge {
+  @apply absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold min-w-[20px] px-1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Focus states */
+.social-focus:focus {
+  @apply outline-none ring-2 ring-[#0095f6]/50;
+}
+
+/* Loading states */
+.social-loading {
+  @apply animate-pulse bg-[#fafafa];
+}
+
+/* Story ring gradient */
+.story-ring {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* Hover effects */
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.hover-opacity {
+  @apply transition-opacity duration-200 hover:opacity-80;
+}
+
+/* Button variants */
+.btn-ghost {
+  @apply bg-transparent text-[#262626] hover:bg-[#fafafa] transition-colors duration-200;
+}
+
+.btn-outline {
+  @apply bg-transparent border border-[#dbdbdb] text-[#262626] hover:bg-[#fafafa] transition-colors duration-200;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+}
+
+/* Text utilities */
+.text-gradient {
+  background: linear-gradient(45deg, #0095f6, #1877f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Backdrop blur */
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
